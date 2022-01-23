@@ -6,6 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.Query
 
 private val moshi = Moshi.Builder()
@@ -18,10 +19,13 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface CaloriesService {
+
+    @Headers("X-Api-Key: 8/MqBej61B6ALLuEf7cIWg==tJbmaSTQHGZd6wLJ")
     @GET("v1/nutrition")
     suspend fun getRemoteCalories(
         @Query("query") query: String
     ): NetworkResponseContainer
+
 }
 
 object CaloriesApi {

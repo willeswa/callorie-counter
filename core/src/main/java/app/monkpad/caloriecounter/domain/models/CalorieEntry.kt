@@ -2,7 +2,7 @@ package app.monkpad.caloriecounter.domain.models
 
 data class CalorieEntry(
     val foodName: String,
-    val foodsImage: String,
+    val foodsImage: String?,
     val calories: Double,
     val sugar: Double?,
     val fiber: Double?,

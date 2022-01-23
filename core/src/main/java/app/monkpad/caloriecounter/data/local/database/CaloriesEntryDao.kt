@@ -16,6 +16,7 @@ interface CaloriesEntryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCaloriesEntry(vararg caloriesEntry: CalorieEntryEntity)
 
-    @Query("SELECT * FROM calorie_entries WHERE food_name = :foodName LIMIT 1")
-    fun getCaloriesEntry(foodName: String): Flow<CalorieEntryEntity>
+    @Query("SELECT * FROM calorie_entries WHERE food_name=:foodName")
+    suspend fun getCalorieEntry(foodName: String): List<CalorieEntryEntity>
+
 }
