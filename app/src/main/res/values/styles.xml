@@ -1,3 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="Cal.TextAppearance.Title" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:padding">8dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="Cal.TextAppearance.Subtitle" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="Cal.TextAppearance.Number" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="Cal.TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:paddingHorizontal">8dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+    <style name="Cal.ShapableImage.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
 </resources>

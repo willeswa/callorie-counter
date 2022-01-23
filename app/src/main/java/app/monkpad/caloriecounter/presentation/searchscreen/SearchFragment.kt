@@ -1,30 +1,55 @@
 package app.monkpad.caloriecounter.presentation.searchscreen
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import app.monkpad.caloriecounter.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import app.monkpad.caloriecounter.databinding.SearchFragmentBinding
+import app.monkpad.caloriecounter.framework.CalorieCounterViewModelFactory
 
 class SearchFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchFragment()
+    private val viewModel: SearchViewModel by activityViewModels {
+        CalorieCounterViewModelFactory
     }
 
-    private lateinit var viewModel: SearchViewModel
+    private lateinit var binding: SearchFragmentBinding
+    private var food: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.search_fragment, container, false)
+
+        binding = SearchFragmentBinding.inflate(inflater, container, false)
+        binding.viewmodel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.calculating.observe(viewLifecycleOwner, {
+            if (it) {
+                food = binding.editTextFoodName.editText?.text.toString().trimEnd()
+                val action = SearchFragmentDirections.actionSearchToDetails(food)
+                if (food.isNotEmpty()) {
+                    findNavController().navigate(action)
+                } else {
+                    viewModel.finishCalculating()
+                    val toast = Toast.makeText(requireContext(),
+                        "Please provide a valid food name",
+                        Toast.LENGTH_LONG)
+                    toast.show()
+                }
+            }
+        })
+
+
     }
 
 }

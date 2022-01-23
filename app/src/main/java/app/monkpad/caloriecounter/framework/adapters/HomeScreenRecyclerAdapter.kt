@@ -1,12 +1,13 @@
-package app.monkpad.caloriecounter.presentation.homescreen.adapters
+package app.monkpad.caloriecounter.framework.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.monkpad.caloriecounter.databinding.RecyclerSingleItemBinding
 import app.monkpad.caloriecounter.domain.models.CalorieEntry
+import app.monkpad.caloriecounter.interactions.CachedEntriesClickListener
 
-class HomeScreenRecyclerAdapter:
+class HomeScreenRecyclerAdapter(private val clickListener: CachedEntriesClickListener):
         RecyclerView.Adapter<HomeScreenRecyclerAdapter.HomeScreenViewHolder>() {
 
     private var calorieEntries = listOf<CalorieEntry>()
@@ -16,7 +17,7 @@ class HomeScreenRecyclerAdapter:
 
     override fun onBindViewHolder(holder: HomeScreenViewHolder, position: Int) {
         val entry = calorieEntries[position]
-        holder.bind(entry)
+        holder.bind(entry, clickListener)
     }
 
     override fun getItemCount() =
@@ -30,13 +31,14 @@ class HomeScreenRecyclerAdapter:
     class HomeScreenViewHolder(private val binding: RecyclerSingleItemBinding):
             RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CalorieEntry){
+        fun bind(item: CalorieEntry, clickListener: CachedEntriesClickListener){
+            binding.clickListener = clickListener
             binding.calorieItem = item
             binding.executePendingBindings()
         }
 
         companion object {
-            fun from(parent: ViewGroup): HomeScreenViewHolder{
+            fun from(parent: ViewGroup): HomeScreenViewHolder {
                 val inflater = LayoutInflater.from(parent.context)
                 val binding = RecyclerSingleItemBinding.inflate(inflater, parent, false)
                 return HomeScreenViewHolder(binding)

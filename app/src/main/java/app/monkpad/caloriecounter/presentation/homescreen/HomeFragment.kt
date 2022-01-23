@@ -6,21 +6,34 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import app.monkpad.caloriecounter.databinding.HomeFragmentBinding
 import app.monkpad.caloriecounter.framework.CalorieCounterViewModelFactory
+import app.monkpad.caloriecounter.framework.adapters.HomeScreenRecyclerAdapter
+import app.monkpad.caloriecounter.interactions.CachedEntriesClickListener
 
 class HomeFragment : Fragment() {
 
-    private val viewModel: HomeViewModel by activityViewModels {
+    private val viewModel: HomeViewModel by viewModels {
         CalorieCounterViewModelFactory
     }
 
+    private lateinit var adapter: HomeScreenRecyclerAdapter
     private lateinit var binding: HomeFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
+        adapter = HomeScreenRecyclerAdapter(CachedEntriesClickListener {
+            val action = HomeFragmentDirections.actionHomeNavToDetailsNav(it.foodName)
+            findNavController().navigate(action)
+        })
+
         binding = HomeFragmentBinding.inflate(inflater, container, false)
+        binding.viewmodel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.mainScreenRecycler.adapter = adapter
 
         return binding.root
     }
