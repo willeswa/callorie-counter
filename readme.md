@@ -22,9 +22,7 @@ System: [Gradle](https://gradle.org/)
 ## Architecture
 
 The application follows
-the [Clean](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-
-- [MVVM](https://developer.android.com/topic/libraries/architecture) architecture powered by Android
+the [Clean](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) [MVVM](https://developer.android.com/topic/libraries/architecture) architecture powered by Android
   Architecture Components.
 
 The app is split into data, domain and ui layer with mappers facilitating the transfer of data
