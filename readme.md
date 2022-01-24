@@ -34,15 +34,16 @@ modules; combining the data and domain layer into one module. This is more of a 
 ## Libraries
 
 - [Android Jetpack](https://developer.android.com/jetpack)
-  -- [Navigation Component](https://developer.android.com/guide/navigation/) - preferred library for
+  - [Navigation Component](https://developer.android.com/guide/navigation/) - preferred library for
   app navigation, fragment management and passing data between screens with support
   from [Safe Args](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args)
-  -- [Room Database](https://developer.android.com/training/data-storage/room/) - Cache calculation
+  - [Room Database](https://developer.android.com/training/data-storage/room/) - Cache calculation
   to build users history.
-  -- [Data Binding](https://developer.android.com/topic/libraries/data-binding) - For reactive
+  - [Data Binding](https://developer.android.com/topic/libraries/data-binding) - For reactive
   views; binding views to the ViewModels
-  -- [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - For state
-  management. -- [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) -
+  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - For state
+  management.
+  - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) -
   Facilitates UI related reactivity.
 - [Glide](https://github.com/bumptech/glide) - Loading Images to views and caching for later.
 - [Retrofit](https://square.github.io/retrofit/) - Preferred library for HTTP processing.
