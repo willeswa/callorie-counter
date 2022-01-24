@@ -1,4 +1,5 @@
 [![Build Status](https://app.travis-ci.com/willeswa/callorie-counter.svg?branch=main)](https://app.travis-ci.com/willeswa/callorie-counter) 
+
 ## Afya Calories Counter
 
 An Android App that calculates the calories of a given food, submitted in string format. The app
