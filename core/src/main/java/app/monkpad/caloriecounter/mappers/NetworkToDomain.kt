@@ -1,4 +1,4 @@
-package app.monkpad.caloriecounter.data.mappers
+package app.monkpad.caloriecounter.mappers
 
 import app.monkpad.caloriecounter.data.remote.models.CaloriesEntryDTO
 import app.monkpad.caloriecounter.domain.models.CalorieEntry

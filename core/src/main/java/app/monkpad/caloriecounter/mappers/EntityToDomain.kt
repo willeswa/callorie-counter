@@ -1,9 +1,9 @@
-package app.monkpad.caloriecounter.data.mappers
+package app.monkpad.caloriecounter.mappers
 
 import app.monkpad.caloriecounter.data.local.models.CalorieEntryEntity
 import app.monkpad.caloriecounter.domain.models.CalorieEntry
 
-fun CalorieEntryEntity.asDomainModel() =
+internal fun CalorieEntryEntity.asDomainModel() =
     CalorieEntry(
         foodName,
         foodsImage,

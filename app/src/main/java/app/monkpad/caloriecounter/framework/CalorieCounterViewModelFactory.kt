@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
  * to initialize our main ViewModel and enforce every ViewModel that uses this Factory
  * to subclass the CalorieCounterViewModel.
  *
- * We are using an object instead of a class to allow use of Static Fields.
+ * We are using an object instead of a class to allow use of Static method inject().
  * This is more of a preference, really.
  */
 object CalorieCounterViewModelFactory : ViewModelProvider.Factory {

@@ -8,7 +8,7 @@ import app.monkpad.caloriecounter.data.local.models.CalorieEntryEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface CaloriesEntryDao {
+internal interface CaloriesEntryDao {
 
     @Query("SELECT * FROM calorie_entries")
     fun getCaloriesEntries(): Flow<List<CalorieEntryEntity>>

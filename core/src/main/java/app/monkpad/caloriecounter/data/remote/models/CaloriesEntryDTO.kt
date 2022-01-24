@@ -3,6 +3,9 @@ package app.monkpad.caloriecounter.data.remote.models
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+/**
+ * A data transfer object to model the result from the internet.
+ */
 @JsonClass(generateAdapter = true)
 data class CaloriesEntryDTO(
     @Json(name = "name") val foodName: String,

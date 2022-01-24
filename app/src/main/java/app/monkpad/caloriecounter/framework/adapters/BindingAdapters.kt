@@ -11,13 +11,12 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
 
 @BindingAdapter("setDouble")
-fun setDouble(textView: TextView, value: Double){
+fun setDouble(textView: TextView, value: Double) {
     textView.text = value.toString()
 }
 
-
 @BindingAdapter("loadCalorieEntries")
-fun loadCalorieEntries(recyclerView: RecyclerView, list: List<CalorieEntry>?){
+fun loadCalorieEntries(recyclerView: RecyclerView, list: List<CalorieEntry>?) {
     val adapter = recyclerView.adapter as HomeScreenRecyclerAdapter
     list?.let {
         adapter?.setCalorieEntries(it)
@@ -25,7 +24,7 @@ fun loadCalorieEntries(recyclerView: RecyclerView, list: List<CalorieEntry>?){
 }
 
 @BindingAdapter("loadImage")
-fun loadImage(image: ShapeableImageView, imageLink: String){
+fun loadImage(image: ShapeableImageView, imageLink: String) {
     Glide.with(image.context)
         .load(imageLink)
         .centerCrop()
@@ -33,36 +32,29 @@ fun loadImage(image: ShapeableImageView, imageLink: String){
         .into(image)
 }
 
-@BindingAdapter("updateButton")
-fun updateButton(button: MaterialButton, loading:Boolean){
-    if(loading){
-        button.text = "Calculating"
-    } else {
-        button.text = "Calculate Calories"
-    }
-}
-
 @BindingAdapter("loadCalories")
-fun loadCalories(textView: TextView, list: List<CalorieEntry>?){
-    if(list != null && list.isNotEmpty()){
+fun loadCalories(textView: TextView, list: List<CalorieEntry>?) {
+    if (list != null && list.isNotEmpty()) {
         textView.text = list[0].calories.toString()
     }
 }
 
 @BindingAdapter("collapsed")
-fun collapsed(button: MaterialButton, collapsed: Boolean){
-    if(collapsed){
-        button.text = "Calories Summary"
+fun collapsed(button: MaterialButton, collapsed: Boolean) {
+    val context = button.context
+    if (collapsed) {
+        button.text = context.getString(R.string.text_summary)
     } else {
-        button.text = "See detailed breakdown"
+        button.text = context.getString(R.string.text_full_analysis)
     }
 }
 
 @BindingAdapter("offlineOrNotFound")
-fun offlineOrNotFound(textView: TextView, cal: List<CalorieEntry>?){
-   if(cal == null && Utility.isConnected(textView.context)){
-       textView.text = "I did not find a food by that name, please try another one."
-   } else {
-       textView.text = "You seem offline. Please connect to the internet first."
-   }
+fun offlineOrNotFound(textView: TextView, cal: List<CalorieEntry>?) {
+    val context = textView.context
+    if (cal == null && Utility.isConnected(textView.context)) {
+        textView.text = context.getString(R.string.error_404_message)
+    } else {
+        textView.text = context.resources.getString(R.string.error_message_internet)
+    }
 }

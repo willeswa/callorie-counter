@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import app.monkpad.caloriecounter.R
 import app.monkpad.caloriecounter.databinding.SearchFragmentBinding
 import app.monkpad.caloriecounter.framework.CalorieCounterViewModelFactory
+import app.monkpad.caloriecounter.utils.Utility
 
 class SearchFragment : Fragment() {
 
@@ -18,7 +19,6 @@ class SearchFragment : Fragment() {
     }
 
     private lateinit var binding: SearchFragmentBinding
-    private var food: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,21 +35,16 @@ class SearchFragment : Fragment() {
 
         viewModel.calculating.observe(viewLifecycleOwner, {
             if (it) {
-                food = binding.editTextFoodName.editText?.text.toString().trimEnd()
+                val food = binding.editTextFoodName.editText?.text.toString().trimEnd()
                 val action = SearchFragmentDirections.actionSearchToDetails(food)
                 if (food.isNotEmpty()) {
                     findNavController().navigate(action)
                 } else {
                     viewModel.finishCalculating()
-                    val toast = Toast.makeText(requireContext(),
-                        "Please provide a valid food name",
-                        Toast.LENGTH_LONG)
-                    toast.show()
+                    Utility.showToastMessage(resources.getString(R.string.bad_food_error),
+                        requireContext())
                 }
             }
         })
-
-
     }
-
 }

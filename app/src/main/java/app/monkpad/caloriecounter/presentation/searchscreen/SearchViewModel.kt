@@ -9,13 +9,8 @@ import app.monkpad.caloriecounter.framework.UseCases
 class SearchViewModel(application: Application, useCases: UseCases) :
         CalorieCounterViewModel(application, useCases) {
 
-    private val _foodName = MutableLiveData<String>()
-    val foodName: LiveData<String> = _foodName
-
     private val _calculating = MutableLiveData<Boolean>()
     val calculating: LiveData<Boolean> = _calculating
-
-    private val _calorieCount = MutableLiveData<Double?>()
 
     fun startCalculating() {
         _calculating.postValue(true)

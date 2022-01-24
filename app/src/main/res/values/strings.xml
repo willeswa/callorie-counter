@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Calorie Counter</string>
     <string name="nav_home">Home</string>
-    <string name="nav_new_food">New Food</string>
+    <string name="nav_new_food">History</string>
+    <string name="bad_food_error">Please provide a valid food name</string>
+    <string name="error_message_internet">You seem offline. Please connect to the internet first.</string>
+    <string name="error_404_message">I did not find a food by that name, please try another one.</string>
+    <string name="text_full_analysis">Show full analysis</string>
+    <string name="text_summary">Calories Summary</string>
 </resources>

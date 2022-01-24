@@ -1,13 +1,15 @@
-package app.monkpad.caloriecounter.data.mappers
+package app.monkpad.caloriecounter.mappers
 
 import app.monkpad.caloriecounter.data.local.models.CalorieEntryEntity
 import app.monkpad.caloriecounter.domain.models.CalorieEntry
 import java.util.*
 
-fun CalorieEntry.asEntityModel(name:String): CalorieEntryEntity =
+private const val UNSPLASH_URL = "https://source.unsplash.com/random/65%C3%9765/?"
+
+internal fun CalorieEntry.asEntityModel(name:String): CalorieEntryEntity =
     CalorieEntryEntity(
-        foodName.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() },
-        foodsImage = "https://source.unsplash.com/random/65%C3%9765/?$name",
+        foodName.capitalize(),
+        foodsImage = "$UNSPLASH_URL$name",
         calories,
         sugar,
         fiber,

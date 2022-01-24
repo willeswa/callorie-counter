@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import app.monkpad.caloriecounter.R
 import app.monkpad.caloriecounter.databinding.DetailsFragmentBinding
 import app.monkpad.caloriecounter.framework.CalorieCounterViewModelFactory
 import app.monkpad.caloriecounter.presentation.searchscreen.SearchViewModel
@@ -31,19 +30,16 @@ class DetailsFragment : Fragment() {
         binding.detailViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val navController = findNavController()
 
         viewModel.calculateCalories(args.foodNameArg)
         searchViewModel.finishCalculating()
 
         viewModel.reset.observe(viewLifecycleOwner, {
-            if(it){
+            if (it) {
                 findNavController().popBackStack()
                 viewModel.finishResetting()
             }
         })
-
-
 
         return binding.root
     }

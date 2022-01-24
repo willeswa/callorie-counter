@@ -27,14 +27,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                style="@style/Cal.TextAppearance.Subtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:alpha="0.5"
-                android:text="What's in your meal?"
-                tools:text="What's for dinner?" />
-
-            <TextView
                 style="@style/Cal.TextAppearance.Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

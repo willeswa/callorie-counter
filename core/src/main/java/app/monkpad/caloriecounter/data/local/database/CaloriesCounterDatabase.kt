@@ -10,7 +10,7 @@ import app.monkpad.caloriecounter.data.local.models.CalorieEntryEntity
     version = 1,
     entities = [CalorieEntryEntity::class],
     exportSchema = false)
-abstract class CaloriesCounterDatabase : RoomDatabase() {
+internal abstract class CaloriesCounterDatabase : RoomDatabase() {
     companion object {
         private lateinit var INSTANCE: CaloriesCounterDatabase
         private const val DATABASE_NAME = "calories_counter"

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/home_nav">
+    app:startDestination="@id/search_nav">
 
     <fragment
         android:id="@+id/search_nav"
@@ -12,7 +12,8 @@
         tools:layout="@layout/search_fragment" >
         <action
             android:id="@+id/actionSearchToDetails"
-            app:destination="@id/details_nav">
+            app:destination="@id/details_nav"
+            app:enterAnim="@android:anim/slide_in_left">
 
         </action>
     </fragment>
@@ -24,6 +25,10 @@
         <argument
             android:name="foodNameArg"
             app:argType="string" />
+        <action
+            android:id="@+id/action_details_nav_to_search_nav"
+            app:destination="@id/search_nav"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/home_nav"
@@ -32,6 +37,7 @@
         tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_home_nav_to_details_nav"
-            app:destination="@id/details_nav" />
+            app:destination="@id/details_nav"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
 </navigation>

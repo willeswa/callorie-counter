@@ -1,10 +1,8 @@
 package app.monkpad.caloriecounter.presentation.detailscreen
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import app.monkpad.caloriecounter.domain.models.CalorieEntry
 import app.monkpad.caloriecounter.framework.CalorieCounterViewModel
@@ -15,7 +13,7 @@ import kotlinx.coroutines.withContext
 
 class DetailViewModel(application: Application, useCases: UseCases) :
         CalorieCounterViewModel(application, useCases) {
-    var bool = false
+    var isDetailedOn = false
 
     private val _calorieEntry = MutableLiveData<List<CalorieEntry>?>()
     val calorieEntry: LiveData<List<CalorieEntry>?> = _calorieEntry
@@ -47,7 +45,7 @@ class DetailViewModel(application: Application, useCases: UseCases) :
     }
 
     fun toggleDetailView(){
-        _detailView.postValue(!bool)
-        bool = !bool
+        _detailView.postValue(!isDetailedOn)
+        isDetailedOn = !isDetailedOn
     }
 }
