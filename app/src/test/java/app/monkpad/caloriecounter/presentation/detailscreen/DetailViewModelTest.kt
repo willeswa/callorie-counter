@@ -39,7 +39,6 @@ class DetailViewModelTest {
 
         //THEN then the reset state should be set to true
         val value = viewModel.reset.getOrAwaitValue()
-
         assertThat(value).isTrue()
     }
 
@@ -51,22 +50,21 @@ class DetailViewModelTest {
         val repository = CaloriesRepository(remote, local)
         val useCases = UseCases(GetCalorieEntry(repository), GetCalorieEntries(repository))
 
-        //GIVEN a ViewModel with state set to resetting
+        //GIVEN a ViewModel with reset state set to true
         val viewModel = DetailViewModel(application, useCases)
         viewModel.startResetting()
 
         //WHEN the resetting is complete
         viewModel.finishResetting()
 
-        //THEN the reset event state should be set to false
+        //THEN the reset state should be set to false
         val value = viewModel.reset.getOrAwaitValue()
-
         assertThat(value).isFalse()
 
     }
 
     @Test
-    fun toggleDetailView_togglesDetailView_OnAndOff(){
+    fun toggleDetailView_togglesDetailView_OnAndOff() {
         val application = ApplicationProvider.getApplicationContext() as CalorieCounterApplication
         val remote = CaloriesRemoteDataSource()
         val local = CaloriesLocalDataSource(application)

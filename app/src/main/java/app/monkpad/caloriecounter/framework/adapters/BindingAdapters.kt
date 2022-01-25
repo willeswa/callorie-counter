@@ -33,7 +33,7 @@ fun loadImage(image: ShapeableImageView, imageLink: String) {
 }
 
 @BindingAdapter("loadCalories")
-fun loadCalories(textView: TextView, list: List<CalorieEntry>?) {
+fun setCalorieValue(textView: TextView, list: List<CalorieEntry>?) {
     if (list != null && list.isNotEmpty()) {
         textView.text = list[0].calories.toString()
     }

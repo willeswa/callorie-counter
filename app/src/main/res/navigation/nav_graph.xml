@@ -32,9 +32,9 @@
     </fragment>
     <fragment
         android:id="@+id/home_nav"
-        android:name="app.monkpad.caloriecounter.presentation.homescreen.HomeFragment"
+        android:name="app.monkpad.caloriecounter.presentation.historyscreen.HistoryFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/home_fragment">
+        tools:layout="@layout/history_fragment">
         <action
             android:id="@+id/action_home_nav_to_details_nav"
             app:destination="@id/details_nav"

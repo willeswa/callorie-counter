@@ -12,6 +12,7 @@ import retrofit2.http.Query
 
 private const val BASE_URL = "https://api.calorieninjas.com/"
 
+//We build our JSON parser builder
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
@@ -22,7 +23,6 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface CaloriesService {
-
     @Headers("X-Api-Key: ${BuildConfig.API_KEY}")
     @GET("v1/nutrition")
     suspend fun getRemoteCalories(
@@ -31,6 +31,7 @@ interface CaloriesService {
 
 }
 
+//Lazily expose the service because it is an expensive process.
 object CaloriesApi {
     val retrofitService: CaloriesService by lazy {
         retrofit.create(CaloriesService::class.java)

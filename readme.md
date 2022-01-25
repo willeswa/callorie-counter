@@ -1,6 +1,6 @@
 [![Build Status](https://app.travis-ci.com/willeswa/callorie-counter.svg?branch=main)](https://app.travis-ci.com/willeswa/callorie-counter) 
 
-## Afya Calories Counter
+## Afya Calories App
 
 An Android App that calculates the calories of a given food, submitted in string format. The app
 uses the [CaloriesNinja API](https://calorieninjas.com/api) to calculate the calories content of the
@@ -58,10 +58,9 @@ WIP. Only tests that have been done are related to UI (ViewModels). More tests t
 
 ## Demo
 
-|<img src="art/1.jpg" width=200 />|<img src="art/5.jpg" width=200 />|
-|<img src="art/2.jpg" width=200 />|<img src="art/6.jpg" width=200 />|
-|<img src="art/3.jpg" width=200 />|<img src="art/7.jpg" width=200 />|
-|<img src="art/4.jpg" width=200 />|<img src="art/8.jpg" width=200 />|
+|<img src="art/11.jpg" width=200 />|<img src="art/22.jpg" width=200 />|
+|<img src="art/33.jpg" width=200 />|<img src="art/44.jpg" width=200 />|
+|<img src="art/55.jpg" width=200 />||
 
 ## Assumptions
 - The right Git conventions were not followed
