@@ -14,9 +14,12 @@ import app.monkpad.caloriecounter.framework.CalorieCounterViewModelFactory
 import app.monkpad.caloriecounter.presentation.searchscreen.SearchViewModel
 
 class DetailsFragment : Fragment() {
+
     private val viewModel: DetailViewModel by viewModels {
         CalorieCounterViewModelFactory
     }
+
+    //We are scoping this the the Activity because of the calculating state
     private val searchViewModel: SearchViewModel by activityViewModels {
         CalorieCounterViewModelFactory
     }
@@ -27,9 +30,9 @@ class DetailsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val binding = DetailsFragmentBinding.inflate(inflater, container, false)
+
         binding.detailViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
-
 
         viewModel.calculateCalories(args.foodNameArg)
         searchViewModel.finishCalculating()
@@ -43,6 +46,4 @@ class DetailsFragment : Fragment() {
 
         return binding.root
     }
-
-
 }

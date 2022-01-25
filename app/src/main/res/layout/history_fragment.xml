@@ -7,13 +7,13 @@
         <import type="android.view.View"/>
         <variable
             name="viewmodel"
-            type="app.monkpad.caloriecounter.presentation.homescreen.HomeViewModel" />
+            type="app.monkpad.caloriecounter.presentation.historyscreen.HistoryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.homescreen.HomeFragment">
+        tools:context=".presentation.historyscreen.HistoryFragment">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -27,7 +27,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                style="@style/Cal.TextAppearance.Title"
+                style="@style/Cal.TextAppearance.Caption"
+                android:textSize="25sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Search History"

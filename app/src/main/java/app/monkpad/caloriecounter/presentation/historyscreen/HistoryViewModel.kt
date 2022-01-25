@@ -1,4 +1,4 @@
-package app.monkpad.caloriecounter.presentation.homescreen
+package app.monkpad.caloriecounter.presentation.historyscreen
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -7,7 +7,7 @@ import app.monkpad.caloriecounter.domain.models.CalorieEntry
 import app.monkpad.caloriecounter.framework.CalorieCounterViewModel
 import app.monkpad.caloriecounter.framework.UseCases
 
-class HomeViewModel(application: Application, useCases: UseCases) :
+class HistoryViewModel(application: Application, useCases: UseCases) :
         CalorieCounterViewModel(application, useCases) {
 
     val cachedEntries: LiveData<List<CalorieEntry>> =
